@@ -33,7 +33,49 @@
                 }
             }
 
-            login(username, password)
+            login(username, password);
         </script>
+        <br>
+        <script>
+            var a = "Hello guys...";
+
+            function first() {
+                var b = "How are you....";
+                second();
+
+                function second() {  //Inner function can access parent function
+                    var c = "I am Kanika Goyal...";
+                    document.write(a + b + c);
+                }
+            }
+            first();
+
+        </script>
+        <br>
+        <script>
+            console.log(this); //This is global object here
+            //While using strict mode this here will give undefined
+            function sum() {
+                var add = 2 + 2;
+                console.log(add); 
+                console.log(this); //This is global object here
+            }
+            sum();
+        </script>
+        <br>
+        <script>
+        const person = {
+            name : "Kanika",
+            qualification: "MSC",
+            sum: function() {
+                var add = 2 + 2;
+                console.log(add);
+                console.log(this.name);
+                console.log(this); //It will belongs to only object
+            }
+
+        }
+        person.sum();
+    </script>
     </body>
 </html>
