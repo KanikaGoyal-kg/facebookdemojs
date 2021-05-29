@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            let database = [
+                {
+                    username : 'Kanika',
+                    password : 'goyal'
+                }
+            ]
+
+            let status = [
+                {
+                    name : 'Naina',
+                    status : 'Please follow her channel',
+                },
+                {
+                    name : 'Poonam',
+                    status : 'Call her for motivation and success',
+                }
+            ]
+
+            const username = prompt('Enter your user name');
+            const password = prompt('Enter your password');
+            
+            const login = (user, pass) => {
+                if (user === database[0].username && pass === database[0].password) {
+                    console.log(status);
+                } else {
+                    alert("Your details are incorrect")
+                }
+            }
+
+            login(username, password)
+        </script>
+    </body>
+</html>
