@@ -1,81 +1,118 @@
 <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <script>
-            let database = [
-                {
-                    username : 'Kanika',
-                    password : 'goyal'
-                }
-            ]
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script>
+      let database = [
+        {
+          username: "Kanika",
+          password: "goyal",
+        },
+      ];
 
-            let status = [
-                {
-                    name : 'Naina',
-                    status : 'Please follow her channel',
-                },
-                {
-                    name : 'Poonam',
-                    status : 'Call her for motivation and success',
-                }
-            ]
+      let status = [
+        {
+          name: "Naina",
+          status: "Please follow her channel",
+        },
+        {
+          name: "Poonam",
+          status: "Call her for motivation and success",
+        },
+      ];
 
-            const username = prompt('Enter your user name');
-            const password = prompt('Enter your password');
-            
-            const login = (user, pass) => {
-                if (user === database[0].username && pass === database[0].password) {
-                    console.log(status);
-                } else {
-                    alert("Your details are incorrect")
-                }
-            }
+      const username = prompt("Enter your user name");
+      const password = prompt("Enter your password");
 
-            login(username, password);
-        </script>
-        <br>
-        <script>
-            var a = "Hello guys...";
-
-            function first() {
-                var b = "How are you....";
-                second();
-
-                function second() {  //Inner function can access parent function
-                    var c = "I am Kanika Goyal...";
-                    document.write(a + b + c);
-                }
-            }
-            first();
-
-        </script>
-        <br>
-        <script>
-            console.log(this); //This is global object here
-            //While using strict mode this here will give undefined
-            function sum() {
-                var add = 2 + 2;
-                console.log(add); 
-                console.log(this); //This is global object here
-            }
-            sum();
-        </script>
-        <br>
-        <script>
-        const person = {
-            name : "Kanika",
-            qualification: "MSC",
-            sum: function() {
-                var add = 2 + 2;
-                console.log(add);
-                console.log(this.name);
-                console.log(this); //It will belongs to only object
-            }
-
+      const login = (user, pass) => {
+        if (user === database[0].username && pass === database[0].password) {
+          console.log(status);
+        } else {
+          alert("Your details are incorrect");
         }
-        person.sum();
+      };
+
+      login(username, password);
     </script>
-    </body>
+    <br />
+    <script>
+      var a = "Hello guys...";
+
+      function first() {
+        var b = "How are you....";
+        second();
+
+        function second() {
+          //Inner function can access parent function
+          var c = "I am Kanika Goyal...";
+          document.write(a + b + c);
+        }
+      }
+      first();
+    </script>
+    <br />
+    <script>
+      console.log(this); //This is global object here
+      //While using strict mode this here will give undefined
+      function sum() {
+        var add = 2 + 2;
+        console.log(add);
+        console.log(this); //This is global object here because it is a regular function
+      }
+      sum();
+    </script>
+    <br />
+    <script>
+      const person = {
+        name: "Kanika",
+        qualification: "MSC",
+        sum: function () {
+          var add = 2 + 2;
+          console.log(add);
+          console.log(this.name);
+          console.log(this); //It will belongs to only object
+
+          function child() {
+            var name = "Kajal";
+            console.log(name + "is my mother");
+            console.log(this); //This will represent global this here because it is a regular function
+          }
+        },
+      };
+      person.sum();
+    </script>
+    <br />
+    <script>
+      const obj1 = {
+        name: "Kanika",
+        pass: "password",
+      };
+
+      const obj2 = obj1;
+
+      (obj1.pass = "qwerty"),
+        console.log(obj1, "obj1"),
+        console.log(obj2, "obj2");
+      //Same thing goes with an array
+    </script>
+    <br />
+    <script>
+      let like = 100;
+      
+      const makeup = {
+          name: 'makeovers',
+          subscribers: 100000,
+      }
+
+      const promotion = (a,b) => {
+            a = 200,
+            b.subscribers = 200000
+      }
+      promotion(like, makeup);
+
+      console.log(like);
+      console.log(makeup.subscribers);
+    </script>
+  </body>
 </html>
